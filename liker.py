@@ -24,6 +24,11 @@ if not api_id or not api_hash or not session_b64 or not channel_username:
 # Convert API_ID to an integer safely
 api_id = int(api_id)
 
+print(f"API_ID: {api_id}")
+print(f"API_HASH: {api_hash}")
+print(f"SESSION_B64 length: {len(session_b64) if session_b64 else 'Not set'}")
+print(f"CHANNEL_USERNAME: {channel_username}")
+
 # Decode the base64-encoded session and save it as a file
 session_name = 'decoded_session'
 with open(f"{session_name}.session", "wb") as session_file:
