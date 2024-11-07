@@ -12,20 +12,14 @@ import base64
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 
-# Retrieve API credentials and check for their presence
-api_id = os.getenv('API_ID')
+# Retrieve API credentials and channel username from Replit environment secrets
+api_id = int(os.getenv('API_ID'))  # Ensure this is an integer
 api_hash = os.getenv('API_HASH')
-session_b64 = os.getenv('SESSION_B64')
-channel_username = os.getenv('CHANNEL_USERNAME')
+session_b64 = os.getenv('SESSION_B64')  # Base64-encoded session file content
+session_name = os.getenv('SESSION_NAME')  # Session file name as a secret
+channel_username = os.getenv('CHANNEL_USERNAME')  # Channel username as a secret
 
-if not api_id or not api_hash or not session_b64 or not channel_username:
-    raise EnvironmentError("One or more environment variables are missing. Please set API_ID, API_HASH, SESSION_B64, and CHANNEL_USERNAME.")
-
-# Convert API_ID to an integer safely
-api_id = int(api_id)
-
-# Decode the base64-encoded session and save it as a file
-session_name = 'decoded_session'
+# Decode the base64-encoded session and save it with the specified session name
 with open(f"{session_name}.session", "wb") as session_file:
     session_file.write(base64.b64decode(session_b64))
 
