@@ -10,7 +10,7 @@ import os
 import base64
 
 # Configure logging
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.DEBUG)
 
 # Retrieve API credentials and channel username from Replit environment secrets
 api_id = int(os.getenv('API_ID'))  # Ensure this is an integer
