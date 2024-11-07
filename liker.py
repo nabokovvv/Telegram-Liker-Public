@@ -29,7 +29,7 @@ reactions = ['👍', '❤', '🔥']
 # Define the main asynchronous function
 async def main():
     # Initialize the client with the existing session file
-    client = TelegramClient(session_name, api_id, api_hash)
+    client = TelegramClient(session_name, api_id, api_hash, connection_retries=5, timeout=30)
 
     # Start the client
     await client.start()
