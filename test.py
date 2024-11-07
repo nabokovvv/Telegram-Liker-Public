@@ -1,3 +1,5 @@
+import os
+
 # Retrieve API credentials and check for their presence
 api_id = os.getenv('API_ID')
 api_hash = os.getenv('API_HASH')
